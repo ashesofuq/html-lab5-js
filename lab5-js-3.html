@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script>
+        let student = [
+        {
+                fullname: 'นายตั้งใจ เรียนมาก',
+                age: 18,
+                year: 1,
+                gpa: 3.40,
+                help: true
+            },
+            {
+                fullname: 'นายส่งงาน ตลอดมา',
+                age: 19,
+                year: 2,
+                gpa: 3.00,
+                help: false
+            },
+            {
+                fullname: 'นางสาวใส่ใจ ดีงาม',
+                age: 20,
+                year: 3,
+                gpa: 2.90,
+                help: true
+            },
+            {
+                fullname: 'นายจีระพงศ์ แสนโพธิ์',
+                age: 21,
+                year: 4,
+                gpa: 4.00,
+                help: false
+            }                                    
+        ]
+        
+        let fund_check = 0
+        let fund 
+        for (let i in student) {                        
+            if(student[i].gpa >= 3.20 && student[i].year >= 1){
+                if(student[i].help == true){
+                    fund = 'ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์และยังช่วยงานภาควิชาด้วย'
+                    fund_check = 1
+                }else{
+                    fund = 'ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์'
+                    fund_check = 1
+                }                
+            }
+            else if(student[i].year >= 2 && student[i].help == true){
+                if(student[i].gpa >= 2.75){
+                    fund = 'ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์และยังช่วยงานภาควิชาด้วย'
+                    fund_check = 1
+                }
+                else{
+                    fund = 'ไม่ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยไม่ถึงเกณฑ์ แต่ช่วยงานภาควิชา'
+                    fund_check = 0
+                }
+            }else if(student[i].help == true && student[i].year == 1){
+                fund = 'ไม่ได้ทุนการศึกษา เนื่องจากปี 1 เกรดเฉลี่ยไม่ถึงเกณฑ์ แต่ช่วยงานภาควิชา'
+                fund_check = 0
+            }else{
+                fund = 'ไม่ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยไม่ถึงเกณฑ์ และยังไม่ได้ช่วยงานภาควิชา'
+                fund_check = 0
+            }
+            if(fund_check == 1){
+                console.log('ชั้นปีที่ '+student[i].year+'\n'+student[i].fullname, fund)
+            }else{
+                console.log('ชั้นปีที่ '+student[i].year+'\n'+'ไม่มี')
+            }            
+        }
+    </script>
+</head>
+</html>
